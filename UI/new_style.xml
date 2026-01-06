@@ -1,0 +1,15 @@
+<!--?xml version="1.0" encoding="UTF-8"?-->
+<resources>
+  <!-- 主色调调整为半透明 -->
+  <color name="primaryColor">#00000000</color>  <!-- 80表示50%透明度 -->
+  <color name="primaryLightColor">#00000000</color>
+
+  <!-- 次要色调设置为透明基底 -->
+  <color name="secondaryColor">#00000000</color>  <!-- 完全透明 -->
+  <color name="secondaryLightColor">#00000000</color>
+  <color name="secondaryDarkColor">#00000000</color>
+
+  <!-- 文本颜色保持可见 -->
+  <color name="primaryTextColor">#000000</color>
+  <color name="secondaryTextColor">#000000</color>
+</resources>

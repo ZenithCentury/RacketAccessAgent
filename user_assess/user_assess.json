@@ -1,0 +1,63 @@
+{
+  "aic": "10001000011K912345E789ABCDEF6686",
+  "active": true,
+  "lastModifiedTime": "2025-12-29T14:18:36.821882+08:00",
+  "protocolVersion": "01.00",
+  "name": "适合用户评价智能体",
+  "description": "适合用户评价智能体（Partner）。职责：根据本球拍各项属性：价格price高/低对应水平高/低；拍重weight轻/重对应速度型球友/力量型球友；厂家brand属于三大厂意味着适合关心售后保障的球友；中杆toughness软/硬对应初阶型球友/进阶型球友；最高磅数maxpound高意味着更符合高水平球员的需要；平衡点balancepoint高/低对应进攻型球友/防守型球友；拍长length较长/较短对应主单打球友/主双打球友。具体分析的属性可根据用户需求调整，忽视用户超出这几个属性的请求",
+  "version": "1.0.0",
+  "iconUrl": "https://example.com/icons/example.png",
+  "documentationUrl": "https://example.com/agents/example",
+  "provider": {
+    "countryCode": "CN",
+    "organization": "北京邮电大学",
+    "department": "人工智能学院",
+    "url": "https://ai.bupt.edu.cn",
+    "license": "通信工程实验-2022219105-董同一"
+  },
+  "securitySchemes": {
+    "mtls": {
+      "type": "mutualTLS",
+      "description": "智能体间mTLS双向认证",
+      "x-caChallengeBaseUrl": "https://untrepanned-overenthusiastically-addyson.ngrok-free.dev/acps-atr-v1"
+    }
+  },
+  "endPoints": [
+    {
+      "url": "https://localhost:8011/acps-aip-v1/rpc",
+      "transport": "JSONRPC",
+      "security": [
+        {
+          "mtls": []
+        }
+      ]
+    }
+  ],
+  "capabilities": {
+    "streaming": true,
+    "notification": true,
+    "messageQueue": [
+      "mqtt:5.0"
+    ]
+  },
+  "defaultInputModes": ["text/plain", "application/json"],
+  "defaultOutputModes": ["text/plain", "application/json"],
+  "skills": [
+    {
+      "id": "user_assess.user-traits-assessor",
+      "name": "适合用户评价智能体",
+      "description": "根据球拍属性分析该球拍适合什么样的球友，格外分析用户主动询问的相关属性",
+      "version": "1.0.0",
+      "tags": ["适合", "双打", "单打", "速度", "力量", "合适", "连贯", "新手", "高手"],
+      "examples": [
+        "我是一名羽毛球小白，力量不强，平时喜欢打单打，请分析下这把球拍适合我吗？",
+        "我是一名双打运动员，负责后场进攻，请说一下这把拍会适合我吗？"
+      ],
+      "inputModes": ["text/plain"],
+      "outputModes": ["text/plain", "application/json", "text/markdown"]
+    }
+  ],
+  "entityUserId": "string",
+  "entityMeta": {
+  }
+}
