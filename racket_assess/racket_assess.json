@@ -1,0 +1,63 @@
+{
+  "aic": "10001000011K912345E789ABCDEF6685",
+  "active": true,
+  "lastModifiedTime": "2025-12-29T14:21:40.377187+08:00",
+  "protocolVersion": "01.00",
+  "name": "球拍性能评价智能体",
+  "description": "球拍性能评价智能体（Partner）。职责：根据用户需要，分析本球拍在各个参数方面的信息 范围：拍重weight；中杆toughness；最高磅数max_pounds:是否能拉高磅；拍长length；平衡点balance_point；评分score；厂家brand：是否属于李宁，Yonex，Victor这三大厂；价格price_range。明确拒绝用户对其他属性的提问",
+  "version": "1.0.0",
+  "iconUrl": "https://example.com/icons/example.png",
+  "documentationUrl": "https://example.com/agents/example",
+  "provider": {
+    "countryCode": "CN",
+    "organization": "北京邮电大学",
+    "department": "人工智能学院",
+    "url": "https://ai.bupt.edu.cn",
+    "license": "通信工程实验-2022219105-董同一"
+  },
+  "securitySchemes": {
+    "mtls": {
+      "type": "mutualTLS",
+      "description": "智能体间mTLS双向认证",
+      "x-caChallengeBaseUrl": "https://untrepanned-overenthusiastically-addyson.ngrok-free.dev/acps-atr-v1"
+    }
+  },
+  "endPoints": [
+    {
+      "url": "https://localhost:8013/acps-aip-v1/rpc",
+      "transport": "JSONRPC",
+      "security": [
+        {
+          "mtls": []
+        }
+      ]
+    }
+  ],
+  "capabilities": {
+    "streaming": true,
+    "notification": true,
+    "messageQueue": [
+      "mqtt:5.0"
+    ]
+  },
+  "defaultInputModes": ["text/plain", "application/json"],
+  "defaultOutputModes": ["text/plain", "application/json"],
+  "skills": [
+    {
+      "id": "racket_assess.racket-attributions-assessor",
+      "name": "球拍参数评价",
+      "description": "评价本球拍参数相对于球拍总体的该项参数，是属于哪一个范围（比如以偏高/偏低/适中来形容），顺便分析这项参数特点带来的优势",
+      "version": "1.0.0",
+      "tags": ["参数","特质","拍重weight","中杆toughness","最高磅数max_pounds","拍长length","平衡点balance_point","评分score","厂家brand","价格price_range"],
+      "examples": [
+        "我想了解一下这个球拍的拍长是属于较长的那一类还是较短的那一类啊？",
+        "请分析这个球拍在参数上的特点"
+      ],
+      "inputModes": ["text/plain"],
+      "outputModes": ["text/plain", "application/json", "text/markdown"]
+    }
+  ],
+  "entityUserId": "string",
+  "entityMeta": {
+  }
+}
